@@ -10,14 +10,11 @@ cloudinary.v2.config({
   api_secret: '7DJJn3dB1hGQNAYYY0xM81Xr05M',
 });
 
-const MIMETYPES = ["image/jpeg", "image/png"];
-
 // Configurar el almacenamiento en Cloudinary para imágenes de campos
 const fieldImageStorage = new CloudinaryStorage({
   cloudinary: cloudinary.v2,
   params: {
     folder: 'fields',
-    allowed_formats: ['jpeg', 'png'],
     public_id: (req, file) => {
       const fileExtension = extname(file.originalname); // extname ahora está definido
       const fileName = file.originalname.split(fileExtension)[0];
@@ -29,8 +26,7 @@ const fieldImageStorage = new CloudinaryStorage({
 export const uploadFieldImage = multer({
   storage: fieldImageStorage,
   fileFilter: (req, file, cb) => {
-    if (MIMETYPES.includes(file.mimetype)) cb(null, true);
-    else cb(new Error(`Only ${MIMETYPES.join(" ")} mimetypes are allowed`));
+    cb(null, true); // Permitir cualquier formato de imagen
   },
   limits: {
     fileSize: 10000000, // 10MB
@@ -42,7 +38,6 @@ const paymentImageStorage = new CloudinaryStorage({
   cloudinary: cloudinary.v2,
   params: {
     folder: 'payments',
-    allowed_formats: ['jpeg', 'png'],
     public_id: (req, file) => {
       const fileExtension = extname(file.originalname);
       const fileName = file.originalname.split(fileExtension)[0];
@@ -54,8 +49,7 @@ const paymentImageStorage = new CloudinaryStorage({
 export const uploadPaymentImage = multer({
   storage: paymentImageStorage,
   fileFilter: (req, file, cb) => {
-    if (MIMETYPES.includes(file.mimetype)) cb(null, true);
-    else cb(new Error(`Only ${MIMETYPES.join(" ")} mimetypes are allowed`));
+    cb(null, true); // Permitir cualquier formato de imagen
   },
   limits: {
     fileSize: 10000000,
@@ -67,7 +61,6 @@ const profileImageStorage = new CloudinaryStorage({
   cloudinary: cloudinary.v2,
   params: {
     folder: 'profiles',
-    allowed_formats: ['jpeg', 'png'],
     public_id: (req, file) => {
       const fileExtension = extname(file.originalname);
       const fileName = file.originalname.split(fileExtension)[0];
@@ -79,8 +72,7 @@ const profileImageStorage = new CloudinaryStorage({
 export const uploadProfileImage = multer({
   storage: profileImageStorage,
   fileFilter: (req, file, cb) => {
-    if (MIMETYPES.includes(file.mimetype)) cb(null, true);
-    else cb(new Error(`Only ${MIMETYPES.join(" ")} mimetypes are allowed`));
+    cb(null, true); // Permitir cualquier formato de imagen
   },
   limits: {
     fileSize: 10000000,
