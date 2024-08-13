@@ -6,7 +6,7 @@ import {
   listReservationsByFieldAndDate,
   userReservations,
 } from "./reservation.controller.js";
-import { uploadPaymentdImage } from "../middlewares/multer-upload.js";
+import { uploadPaymentImage } from "../middlewares/multer-upload.js";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -16,7 +16,7 @@ const router = Router();
 
 router.post(
   "/addReservation",
-  uploadPaymentdImage.single("payment"),
+  uploadPaymentImage.single("payment"),
   addReservation,
   reserveField
 );
