@@ -11,6 +11,7 @@ import reservationRoutes from "../src/reservations/reservation.routes.js";
 class ExpressServer {
   constructor() {
     this.app = express();
+    this.app.set('trust proxy', 1);
     this.port = process.env.PORT || 3001;
     this.basePath = "/sportsFieldManager/v1";
 
