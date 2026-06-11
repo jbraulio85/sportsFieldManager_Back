@@ -12,7 +12,7 @@
   "author": "Braulio Echeveria y Josue Noj",
   "license": "MIT",
   "dependencies": {
-    "axios": "^1.15.1",
+    "axios": "^1.17.0",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
@@ -36,7 +36,7 @@
   },
   "pnpm": {
     "overrides": {
-      "axios": ">=1.15.1",
+      "axios": ">=1.17.0",
       "form-data": ">=4.0.4",
       "validator": ">=13.15.22",
       "qs": ">=6.14.2",
@@ -76,7 +76,8 @@
       "@tootallnate/once": ">=2.0.1",
       "@babel/runtime": ">=7.26.10",
       "smol-toml": ">=1.6.1",
-      "srvx": ">=0.11.13"
+      "srvx": ">=0.11.13",
+      "react-router": "^6.30.4"
     }
   }
 }
